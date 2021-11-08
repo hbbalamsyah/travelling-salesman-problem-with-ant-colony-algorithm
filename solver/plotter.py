@@ -75,7 +75,7 @@ class MapPlotter:
         )
         initial_view_state = self._get_init_view(lines_pheromones)
         self.r = pydeck.Deck(layers=[layer_nodes, layer_nodes_name, self.layer_pheromones, self.layer_best_path],
-                             initial_view_state=initial_view_state, map_style="mapbox://styles/mapbox/streets-v11", tooltip=True, mapbox_key="pk.eyJ1IjoiYWJpYmI1IiwiYSI6ImNrdnE0MnlxYTE2OXMyb3FoaG54OXNsZmwifQ.HrKDv5hdsLzv6y5gY3fT1Q")
+                             initial_view_state=initial_view_state, map_style="mapbox://styles/mapbox/streets-v11", tooltip=True, mapbox_key="")
         self.chart = st.pydeck_chart(self.r)
 
         # Empty plot to show the distance convergence
