@@ -4,14 +4,19 @@ Project ini bertujuan untuk mencari jarak terpendek untuk menyelesaikan travelli
 Optimasi Koloni Semut berasal dari perilaku semut ketika mereka mengangkut makanan dari sumber ke sarang mereka. Mereka menemukan jalur terpendek antara dua titik dengan meninggalkan feromon di sepanjang jalur mereka. Pada awalnya semut menjelajahi banyak jalur untuk mencapai tujuannya, tetapi karena feromon menguap, jalur dengan banyak feromon menunjukkan bahwa semut ada di sana beberapa waktu yang lalu, sehingga jalur ini mungkin lebih pendek dari yang lain. Metode ini dapat diterapkan untuk mencari solusi yang baik untuk Traveling Salesman Problem misalnya yang dikenal dengan NP-hard problem. Seperti ditekankan, itu tidak menyelesaikan masalah dengan menemukan solusi terbaik, (yang dapat diperoleh dengan menggunakan algoritma Held-Karp) tetapi memberikan solusi yang dapat diterima dalam waktu yang dapat diterima (pengguna memperbaiki jumlah iterasi) untuk masalah dimensi besar . 
 
 Berikut adalah deskripsi singkat dari algoritma Koloni Semut: 
+
     1. Grafik diinisialisasi dengan meninggalkan nilai yang sama dari feromon pada setiap busur (setiap node dari masalah terkait dengan semua node yang tersisa), dan
     semut secara acak ditugaskan untuk salah satu simpul. 
+    
     2. Pada setiap iterasi, setiap semut menemukan solusi untuk masalah tersebut, dengan melewati setiap node dan kembali ke node awal.
+    
     3. Untuk memilih di kota mana semut harus pergi, sebuah probabilitas diberikan ke setiap busur, yang mewakili daya tariknya (kombinasi nilai feromon dan jaraknya).
     Busur kemudian dipilih dengan menggambar sampel dari hukum probabilitas ini. 
+    
     4. Pada akhir iterasi, pheromone pada setiap busur diperbarui: 
         - beberapa pheromone dihilangkan karena menguap(evaporates)
         - beberapa pheromone ditambahkan, bergantung pada jarak total yang ditempuh oleh setiap semut: semakin kecil jaraknya, semakin besar pheromone yang ditambahkan             di jalurnya . 
+        
     5. Kriteria penghentian adalah jumlah iterasi (dapat berupa fakta bahwa solusi terbaik tidak berkembang selama n iterasi.
 
 Parameter penting : 
